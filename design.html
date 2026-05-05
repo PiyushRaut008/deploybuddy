@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Design details — view screenshots, features, and info." />
+  <title>Design Details — DeployBuddy</title>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Background Glows -->
+  <div class="bg-glow bg-glow--1"></div>
+  <div class="bg-glow bg-glow--2"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">⚡ DeployBuddy</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#designs">Designs</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Detail Content (populated by JS) -->
+  <main class="detail-page" id="detailPage">
+    <div class="detail-loading" id="detailLoading">
+      <div class="spinner"></div>
+      <p>Loading design...</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-logo">⚡ DeployBuddy</span>
+        <p class="footer-text">&copy; 2026 DeployBuddy. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="mailto:piyushraut.raut@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/designs.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ── Mobile nav toggle ──
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+      navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('active')));
+
+      // ── Get project ID from URL ──
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get('id');
+      const project = DESIGNS.find(p => p.id === projectId);
+      const detailPage = document.getElementById('detailPage');
+      const loading = document.getElementById('detailLoading');
+
+      if (!project) {
+        loading.innerHTML = `
+          <div style="text-align:center;padding:120px 24px;">
+            <h2 style="font-size:2rem;margin-bottom:12px;">Design Not Found</h2>
+            <p style="color:var(--text-muted);margin-bottom:24px;">The design ID "${projectId || '—'}" doesn't exist.</p>
+            <a href="index.html#designs" class="btn btn-primary">← Back to Designs</a>
+          </div>`;
+        return;
+      }
+
+      // ── Update page title ──
+      document.title = `${project.title} — DeployBuddy`;
+
+      // ── Build the detail page ──
+      detailPage.innerHTML = `
+        <div class="container">
+
+          <!-- Breadcrumb -->
+          <div class="detail-breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+            <a href="index.html#designs">Designs</a>
+            <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+            <span>${project.title}</span>
+          </div>
+
+          <!-- Top Section: Gallery + Info -->
+          <div class="detail-top">
+
+            <!-- Image Gallery -->
+            <div class="detail-gallery">
+              <div class="detail-gallery__main">
+                <img src="${project.screenshots[0]}" alt="${project.title} screenshot" id="galleryMain" />
+              </div>
+              <div class="detail-gallery__thumbs" id="galleryThumbs">
+                ${project.screenshots.map((src, i) => `
+                  <button class="detail-gallery__thumb ${i === 0 ? 'active' : ''}" data-index="${i}">
+                    <img src="${src}" alt="Screenshot ${i + 1}" />
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Project Info -->
+            <div class="detail-info">
+              <span class="detail-info__badge">${project.category}</span>
+              <span class="detail-info__id">${project.id}</span>
+              <h1 class="detail-info__title">${project.title}</h1>
+              <p class="detail-info__desc">${project.fullDesc}</p>
+              ${project.price ? `<div class="detail-info__price-row">
+                <span class="detail-info__price">${project.price}</span>
+              </div>` : ''}
+              <div class="detail-info__actions">
+                <a href="index.html#contact" class="btn btn-primary detail-contact-btn" data-pid="${project.id}">
+                  <i class="fa-solid fa-paintbrush"></i> Choose This Design
+                </a>
+                <a href="index.html#designs" class="btn btn-outline">
+                  <i class="fa-solid fa-arrow-left"></i> All Designs
+                </a>
+              </div>
+
+              <!-- Tech Stack -->
+              <div class="detail-info__tech">
+                <h4>Recommended Tech Stack</h4>
+                <div class="detail-tech-tags">
+                  ${project.techStack.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features Section -->
+          <div class="detail-features" style="margin-top: 48px;">
+            <h2 class="detail-features__title">
+              <i class="fa-solid fa-star" style="color:#6366f1"></i>
+              Design Highlights
+            </h2>
+            <div class="detail-features__grid">
+              ${project.features.map(f => `
+                <div class="feature-item">
+                  <i class="fa-solid fa-check" style="color:#22c55e;flex-shrink:0"></i>
+                  <span>${f}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- CTA Banner -->
+          <div class="detail-cta">
+            <div class="detail-cta__text">
+              <h3>Interested in this design?</h3>
+              <p>Get in touch and we'll start building your personal portfolio based on this layout!</p>
+            </div>
+            <a href="index.html#contact" class="btn btn-primary detail-contact-btn" data-pid="${project.id}">
+              <i class="fa-solid fa-paper-plane"></i> Get in Touch
+            </a>
+          </div>
+
+        </div>
+      `;
+
+      // ── Gallery thumbnail click ──
+      const mainImg = document.getElementById('galleryMain');
+      document.querySelectorAll('.detail-gallery__thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const idx = parseInt(thumb.dataset.index);
+          mainImg.src = project.screenshots[idx];
+          document.querySelectorAll('.detail-gallery__thumb').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+
+      // ── Lightbox Logic ──
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      mainImg.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        setTimeout(() => lightbox.classList.add('show'), 10);
+        lightboxImg.src = mainImg.src;
+      });
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('show');
+        setTimeout(() => lightbox.style.display = 'none', 300);
+      };
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+          closeLightbox();
+        }
+      });
+
+      // ── Contact buttons: store project ID & redirect ──
+      document.querySelectorAll('.detail-contact-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          sessionStorage.setItem('autofill_project_id', btn.dataset.pid);
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
