@@ -252,6 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="project-card__body">
             <h3 class="project-card__title">${design.title}</h3>
             <p class="project-card__desc">${design.shortDesc}</p>
+            <div class="detail-tech-tags" style="margin-top: -8px; margin-bottom: 20px;">
+              ${design.techStack.slice(0, 3).map(t => `<span class="tech-tag" style="padding: 4px 10px; font-size: 0.7rem;">${t}</span>`).join('')}
+            </div>
           </div>
         </a>
         <div class="project-card__body" style="padding-top:0">

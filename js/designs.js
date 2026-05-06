@@ -24,7 +24,7 @@ const DESIGNS = [
     ],
     features: ["Futuristic UI", "AI Integration Showcase", "Interactive Skill Badges", "Featured Projects Grid", "Responsive Design"],
     price: "₹299",
-    techStack: ["React", "Tailwind CSS", "Framer Motion", "Three.js"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     category: "Tech Portfolio"
   },
   {
@@ -41,7 +41,7 @@ const DESIGNS = [
     ],
     features: ["Minimalist Light Theme", "Experience-Focused Layout", "Clean Typography", "Animated Skill Cards", "Responsive Grid"],
     price: "₹299",
-    techStack: ["Next.js", "Tailwind CSS", "MongoDB", "Framer Motion"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     category: "Creative Portfolio"
   },
   {
@@ -58,7 +58,7 @@ const DESIGNS = [
     ],
     features: ["Neon Cyberpunk Aesthetic", "Interactive Bento-style Grid", "Glassmorphism Elements", "Smooth Scroll Animations", "Full-Stack Tech Showcase"],
     price: "₹299",
-    techStack: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     category: "Full-Stack Portfolio"
   }
 ];

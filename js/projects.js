@@ -25,7 +25,7 @@ const PROJECTS = [
       "images/prj001/3.jpg",
       "images/prj001/4.jpg"
     ],
-    demoVideo: "https://youtu.be/khpxy5BowuA",
+    demoVideo: "https://youtu.be/8sbjAsayswk?si=Tifr0MfAl6QSOD78",
     problemStatement: `In today's fast-paced business environment, making data-driven decisions is crucial, yet companies face several major hurdles:
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>High Costs & Vendor Lock-in:</strong> Enterprise Business Intelligence tools (like Tableau, Power BI) and modern AI analytics platforms require expensive, recurring monthly SaaS subscriptions.</li>
@@ -75,7 +75,7 @@ const PROJECTS = [
       "images/prj002/3.jpeg",
       "images/prj002/4.jpeg"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/1oVKwChFAQY?si=WNvgTZY9JUctdIjw",
     problemStatement: "Building robust machine learning pipelines is traditionally a manual, time-consuming process requiring deep expertise. Furthermore, many automated ML tools act as 'black boxes', failing to provide interpretability into how models make decisions, which is critical for trust and compliance in enterprise environments.",
     solution: "Auto ML Studio provides an end-to-end, multi-agent automated machine learning pipeline that not only selects the best performing models but also prioritizes explainability. It integrates SHAP (SHapley Additive exPlanations) to transparently show feature importance and model reasoning. The built-in drift detection ensures the model remains reliable in production over time.",
     features: [
@@ -88,7 +88,7 @@ const PROJECTS = [
       "SEO optimized with meta tags",
       "Blazing fast performance (95+ Lighthouse)"
     ],
-    techStack: ["HTML5", "CSS3", "JavaScript", "Particles.js"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Particles.js", "Python", "Scikit-Learn", "Numpy", "Pandas"],
     category: "Portfolio"
   },
   {
@@ -104,7 +104,7 @@ const PROJECTS = [
       "images/prj003/3.png",
       "images/prj003/4.png"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/NKqXB-L0oFY?si=JmAr-suVTp7alWnM",
     problemStatement: `Educational institutions are bombarded daily with hundreds of repetitive inquiries from prospective students, current students, and parents. Questions like "How do I apply?", "What is the fee structure?", or "When are the exams?" consume a massive amount of administrative time.
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>Administrative Bottlenecks:</strong> Human staff cannot efficiently manage high volumes of repetitive queries, leading to delayed responses.</li>
@@ -155,7 +155,7 @@ const PROJECTS = [
       "images/prj004/3.png",
       "images/prj004/4.png"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/5WSe1vUmbuA?si=CLbbzzYkcfWxW-IQ",
     problemStatement: `In busy software development and project management teams, manually triaging issues is a time-consuming and highly subjective process. Project managers and tech leads often spend countless hours reading through tickets, determining their severity, estimating the effort required, and deciding who should handle them.
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>Prone to Bottlenecks:</strong> Manual workflow creates delays in task resolution.</li>
@@ -204,7 +204,7 @@ const PROJECTS = [
       "images/prj005/3.png",
       "images/prj005/4.png"
     ],
-    demoVideo: "https://youtu.be/3AWTuDGieGQ",
+    demoVideo: "https://youtu.be/Y6xEMOs_OZY?si=nc9RtOkacWRK4sk9",
     problemStatement: `Educational institutions generate vast amounts of academic data every semester, but it is typically stored in static spreadsheets or basic databases without any meaningful analysis.
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>Lack of Insight:</strong> Teachers and students struggle to visualize long-term performance trends or identify specific weak areas.</li>
@@ -244,14 +244,14 @@ const PROJECTS = [
     shortDesc: "A robust, web-based Event Attendance Tracker built with Python (Flask) and MongoDB.",
     fullDesc: "A robust, web-based Event Attendance Tracker built with Python (Flask) and MongoDB. This application provides a centralized platform for administrators, event coordinators, and educational institutions to seamlessly create events, manage student registrations, and track real-time attendance. With an intuitive dashboard and secure admin access, it simplifies the process of organizing college events, workshops, or seminars, ensuring accurate record-keeping and easy data retrieval.",
     price: "₹299",
-    thumbnail: "images/prj006/Thumbnail006(a).png",
+    thumbnail: "images/prj006/thumb.jpeg",
     screenshots: [
       "images/prj006/1.png",
       "images/prj006/2.png",
       "images/prj006/3.png",
       "images/prj006/4.png"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/QBDzd7YeHyk?si=2vFtPqiZWrvuaruh",
     problemStatement: `Managing event attendance manually using paper registers, Google Forms, or disjointed spreadsheets is time-consuming, prone to errors, and difficult to scale. Event coordinators and institutions often struggle with:
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>Data Loss & Inaccuracy:</strong> Paper records can be lost or damaged, and manual data entry leads to typos and duplicated efforts.</li>
@@ -304,7 +304,7 @@ const PROJECTS = [
       "images/prj007/3.jpeg",
       "images/prj007/4.jpeg"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/3JQYs0mQ87M?si=QMMrY3T3-juTkggl",
     problemStatement: `Navigating the modern job market is highly competitive and often frustrating for candidates. Job seekers face three major hurdles:
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>The ATS Black Hole:</strong> Many candidates get rejected automatically because their resumes are poorly formatted or lack the right keywords to pass Applicant Tracking Systems (ATS).</li>
@@ -355,7 +355,7 @@ const PROJECTS = [
       "images/prj008/3.png",
       "images/prj008/4.png"
     ],
-    demoVideo: "https://youtube.com/watch?v=YOUR_VIDEO_ID_HERE",
+    demoVideo: "https://youtu.be/zavb7Ha-zxo?si=i0vVcsUOQ5X-zDPD",
     problemStatement: `If you run a business, an agency, or frequently use QR codes, you likely face these common frustrations:
     <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
       <li><strong>Subscription Traps:</strong> Most "free" online generators hold high-resolution formats (like SVG) or advanced customizations (like adding a center logo) behind expensive monthly paywalls.</li>
