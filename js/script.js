@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ──────────────────────────────────────────
   const typingTarget = document.getElementById('typingTarget');
   if (typingTarget) {
-    const words = ['Stunning Projects', 'Web Applications', 'Digital Solutions', 'AI-Powered Tools'];
+    const words = ['Ambitions', 'Next Project', 'Professional Brand', 'Experience'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -237,25 +237,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (designsGrid && typeof DESIGNS !== 'undefined') {
     DESIGNS.forEach(design => {
       const card = document.createElement('div');
-      card.className = 'project-card design-card';
+      card.className = 'project-card';
       card.innerHTML = `
         <a href="design.html?id=${design.id}" class="project-card__link">
-          <div class="project-card__image-wrapper" style="height: 250px;">
+          <div class="project-card__image-wrapper">
             <img
               src="${design.thumbnail}"
               alt="${design.title}"
               class="project-card__image"
-              style="height: 100%; object-fit: cover;"
               loading="lazy"
             />
             <span class="project-card__id-badge">${design.id}</span>
           </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">${design.title}</h3>
+            <p class="project-card__desc">${design.shortDesc}</p>
+          </div>
         </a>
-        <div class="project-card__body">
-          <h3 class="project-card__title" style="margin-bottom: 16px;">${design.title}</h3>
-          <button class="project-card__btn" data-project-id="${design.id}" style="width: 100%;">
-            <i class="fa-solid fa-paintbrush"></i> Choose This Design
-          </button>
+        <div class="project-card__body" style="padding-top:0">
+          <div class="project-card__footer">
+            <span class="project-card__price">${design.price}</span>
+            <button class="project-card__btn" data-project-id="${design.id}">
+              <i class="fa-solid fa-paintbrush"></i> Choose This
+            </button>
+          </div>
         </div>
       `;
       designsGrid.appendChild(card);

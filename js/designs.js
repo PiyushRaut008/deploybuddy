@@ -12,59 +12,53 @@
 const DESIGNS = [
   {
     id: "DGN-001",
-    title: "Minimalist E-commerce Theme",
-    shortDesc: "A clean, modern, and minimal e-commerce design perfect for fashion, lifestyle, or boutique brands.",
-    fullDesc: "This minimalist e-commerce theme focuses on high-quality product imagery and typography. It offers a seamless shopping experience with intuitive navigation, a clean cart interface, and beautifully structured product detail pages. Perfect for brands that want a premium, uncluttered aesthetic.",
-    thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    title: "Futuristic AI Enthusiast Portfolio",
+    shortDesc: "A modern, high-performance portfolio design featuring AI integration, clean code, and a stunning dark-themed aesthetic.",
+    fullDesc: "This premium portfolio template is designed for tech students and AI enthusiasts. It features a futuristic UI with glassmorphism elements, interactive skill badges, and a featured projects section. Built with a focus on high-performance and intelligent web solutions, it's perfect for showcasing your technical expertise in a visually compelling way.",
+    thumbnail: "images/portfolios/DGN-001/thumb001.jpeg",
     screenshots: [
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+      "images/portfolios/DGN-001/1.jpeg",
+      "images/portfolios/DGN-001/2.jpeg",
+      "images/portfolios/DGN-001/3.jpeg",
+      "images/portfolios/DGN-001/4.jpeg"
     ],
-    features: ["Clean Typography", "Responsive Grid Layout", "Minimalist Cart UI", "High-conversion Checkout"],
-    techStack: ["HTML5", "CSS3", "JavaScript"],
-    category: "E-commerce"
+    features: ["Futuristic UI", "AI Integration Showcase", "Interactive Skill Badges", "Featured Projects Grid", "Responsive Design"],
+    price: "₹299",
+    techStack: ["React", "Tailwind CSS", "Framer Motion", "Three.js"],
+    category: "Tech Portfolio"
   },
   {
     id: "DGN-002",
-    title: "SaaS Dashboard Dark Mode",
-    shortDesc: "A sleek, dark-themed dashboard template for SaaS products, featuring data visualization components.",
-    fullDesc: "Designed for modern software-as-a-service platforms, this dark mode dashboard template includes beautifully crafted charts, tables, and metric cards. The dark aesthetic reduces eye strain for power users while maintaining a highly professional and tech-forward appearance.",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    title: "Elegant Creative Portfolio",
+    shortDesc: "A clean, intuitive, and impactful light-themed portfolio for creative technologists and experience engineers.",
+    fullDesc: "This elegant portfolio template uses a warm, minimalist color palette to create a lasting impression. It features a clean layout that highlights your project experiences and technical skills. Designed for experience engineers, it emphasizes maintainability, scalability, and user-focused performance across all devices.",
+    thumbnail: "images/portfolios/DGN-002/thumb002.jpeg",
     screenshots: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+      "images/portfolios/DGN-002/1.jpeg",
+      "images/portfolios/DGN-002/2.jpeg",
+      "images/portfolios/DGN-002/3.jpeg",
+      "images/portfolios/DGN-002/4.jpeg"
     ],
-    features: ["Dark Mode Default", "Interactive Charts", "Data Tables", "User Profile Management"],
-    techStack: ["React", "Tailwind CSS", "Chart.js"],
-    category: "Dashboard"
+    features: ["Minimalist Light Theme", "Experience-Focused Layout", "Clean Typography", "Animated Skill Cards", "Responsive Grid"],
+    price: "₹299",
+    techStack: ["Next.js", "Tailwind CSS", "MongoDB", "Framer Motion"],
+    category: "Creative Portfolio"
   },
   {
     id: "DGN-003",
-    title: "Modern Corporate Landing Page",
-    shortDesc: "A professional and trustworthy landing page design for corporate agencies and B2B services.",
-    fullDesc: "This corporate landing page is built to convert. It features a strong hero section, clear value propositions, trust signals (like client logos and testimonials), and prominent calls-to-action. The design is structured to guide visitors through your corporate narrative smoothly.",
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    title: "Neon Developer Portfolio",
+    shortDesc: "A bold, high-contrast dark theme with neon accents, designed for full-stack developers and computer science students.",
+    fullDesc: "This visually stunning portfolio template features a cyberpunk aesthetic with neon cyan and purple accents. Built for developers specializing in building intelligent and scalable digital products, it includes sections for Web Development, UI/UX Design, and Backend Development. The design uses advanced CSS effects and smooth transitions to create an immersive experience.",
+    thumbnail: "images/portfolios/DGN-003/thumb003.jpeg",
     screenshots: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
+      "images/portfolios/DGN-003/1.jpeg",
+      "images/portfolios/DGN-003/2.jpeg",
+      "images/portfolios/DGN-003/3.jpeg",
+      "images/portfolios/DGN-003/4.jpeg"
     ],
-    features: ["Strong Hero Section", "Testimonials Slider", "Service Cards", "SEO Optimized Structure"],
-    techStack: ["HTML5", "CSS3", "JavaScript"],
-    category: "Landing Page"
-  },
-  {
-    id: "DGN-004",
-    title: "Creative Portfolio Template",
-    shortDesc: "A dynamic, grid-based portfolio template for creatives, photographers, and agencies.",
-    fullDesc: "Showcase your work with this highly visual, creative portfolio template. It uses an asymmetrical grid and smooth scrolling animations to create a memorable browsing experience. Perfect for visual artists who want their work to take center stage without distractions.",
-    thumbnail: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
-    screenshots: [
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop"
-    ],
-    features: ["Masonry Grid", "Smooth Scrolling", "Lightbox Gallery", "Minimalist Navigation"],
-    techStack: ["HTML5", "SCSS", "GSAP"],
-    category: "Portfolio"
+    features: ["Neon Cyberpunk Aesthetic", "Interactive Bento-style Grid", "Glassmorphism Elements", "Smooth Scroll Animations", "Full-Stack Tech Showcase"],
+    price: "₹299",
+    techStack: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
+    category: "Full-Stack Portfolio"
   }
 ];
