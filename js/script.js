@@ -219,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="project-card__body" style="padding-top:0">
           <div class="project-card__footer">
             <span class="project-card__price">${project.price}</span>
-            <button class="project-card__btn" data-project-id="${project.id}">
-              Contact for This
+            <button class="project-card__btn" data-project-id="${project.id}" data-project-title="${project.title}">
+              Place Order
             </button>
           </div>
         </div>
@@ -260,8 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="project-card__body" style="padding-top:0">
           <div class="project-card__footer">
             <span class="project-card__price">${design.price}</span>
-            <button class="project-card__btn" data-project-id="${design.id}">
-              <i class="fa-solid fa-paintbrush"></i> Choose This
+            <button class="project-card__btn" data-project-id="${design.id}" data-project-title="${design.title}">
+              <i class="fa-solid fa-cart-shopping"></i> Place Order
             </button>
           </div>
         </div>
@@ -314,49 +314,73 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   // ──────────────────────────────────────────
-  // 7. CONTACT BUTTON — autofill & scroll
+  // 7. ORDER MODAL LOGIC
   // ──────────────────────────────────────────
-  document.querySelectorAll('.project-card__btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+  const modalOverlay = document.getElementById('orderModalOverlay');
+  const closeBtn = document.getElementById('closeOrderModal');
+  const orderForm = document.getElementById('orderForm');
+  const orderProjectNameField = document.getElementById('orderProjectName');
+  const orderSubjectField = document.getElementById('orderSubject');
 
-      const projectId = btn.getAttribute('data-project-id');
-      const projectIdField = document.getElementById('projectId');
-      const contactSection = document.getElementById('contact');
+  function openOrderModal(id, title) {
+    if (!modalOverlay) return;
+    if (orderProjectNameField) orderProjectNameField.value = `${title} (${id})`;
+    if (orderSubjectField) orderSubjectField.value = `New Order Request: ${title} [${id}]`;
+    modalOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent scroll
+  }
 
-      if (projectIdField) {
-        projectIdField.value = projectId;
-        projectIdField.style.borderColor = '#6366f1';
-        projectIdField.style.boxShadow = '0 0 0 3px rgba(99,102,241,0.25)';
-        setTimeout(() => {
-          projectIdField.style.borderColor = '';
-          projectIdField.style.boxShadow = '';
-        }, 2000);
-      }
+  function closeOrderModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
 
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+  if (closeBtn) closeBtn.addEventListener('click', closeOrderModal);
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeOrderModal();
     });
+  }
+
+  // Handle Order Form Submission
+  if (orderForm) {
+    orderForm.addEventListener('submit', (e) => {
+      showToast('Order request sent! We will contact you soon. 🚀');
+      setTimeout(closeOrderModal, 1000);
+    });
+  }
+
+  // Attach to project card buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.project-card__btn');
+    if (btn) {
+      const pid = btn.getAttribute('data-project-id');
+      const ptitle = btn.getAttribute('data-project-title') || pid;
+      openOrderModal(pid, ptitle);
+    }
   });
 
   // ──────────────────────────────────────────
-  // 8. AUTO-FILL FROM DETAIL PAGE
+  // 8. AUTO-FILL FROM DETAIL PAGE (Redirect to modal)
   // ──────────────────────────────────────────
   const storedProjectId = sessionStorage.getItem('autofill_project_id');
   if (storedProjectId) {
-    const projectIdField = document.getElementById('projectId');
-    if (projectIdField) {
-      projectIdField.value = storedProjectId;
-      sessionStorage.removeItem('autofill_project_id');
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 500);
+    sessionStorage.removeItem('autofill_project_id');
+    // Find project title from projects.js or designs.js if possible, or just use ID
+    let projectTitle = storedProjectId;
+    if (typeof PROJECTS !== 'undefined') {
+      const p = PROJECTS.find(item => item.id === storedProjectId);
+      if (p) projectTitle = p.title;
     }
+    if (projectTitle === storedProjectId && typeof DESIGNS !== 'undefined') {
+      const d = DESIGNS.find(item => item.id === storedProjectId);
+      if (d) projectTitle = d.title;
+    }
+
+    setTimeout(() => {
+      openOrderModal(storedProjectId, projectTitle);
+    }, 800);
   }
 
   // ──────────────────────────────────────────
@@ -366,25 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-      const email = document.getElementById('email');
-      const projectId = document.getElementById('projectId');
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailPattern.test(email.value)) {
-        e.preventDefault();
-        showToast('Please enter a valid email address.', 'error');
-        email.focus();
-        return;
-      }
-
-      if (!projectId.value.trim()) {
-        e.preventDefault();
-        showToast('Please enter or select a Project ID.', 'error');
-        projectId.focus();
-        return;
-      }
-
-      showToast('Message sent successfully! 🎉');
+      showToast('Custom project request sent! 🎉');
     });
   }
 

@@ -60,5 +60,29 @@ const DESIGNS = [
     price: "₹299",
     techStack: ["HTML", "CSS", "JavaScript"],
     category: "Full-Stack Portfolio"
+  },
+  {
+    id: "DGN-004",
+    title: "Premium Creative Developer Portfolio",
+    shortDesc: "A premium digital experience built with Angular, combining modern UI/UX design, smooth animations, and immersive frontend interactions.",
+    fullDesc: "Crafting Modern Digital Experiences with Creative Frontend Engineering. This project showcases a futuristic developer portfolio created using Angular and TypeScript. The design focuses on clean layouts, glassmorphism effects, interactive sections, and smooth user experience with optimized performance across all devices. Built with GSAP and Three.js for immersive interactions.",
+    thumbnail: "images/portfolios/DGN-004/thumb.jpg",
+    screenshots: [
+      "images/portfolios/DGN-004/1.jpg",
+      "images/portfolios/DGN-004/2.jpg",
+      "images/portfolios/DGN-004/3.jpg",
+      "images/portfolios/DGN-004/4.jpg"
+    ],
+    features: [
+      "Premium Light Theme UI",
+      "Smooth GSAP Animations",
+      "Interactive Hover Effects",
+      "Modern Glassmorphism Design",
+      "Animated Navigation",
+      "WebGL & Three.js Effects"
+    ],
+    price: "₹399",
+    techStack: ["Angular", "TypeScript", "GSAP", "Three.js", "SCSS"],
+    category: "Premium Portfolio"
   }
 ];

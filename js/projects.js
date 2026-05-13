@@ -399,5 +399,99 @@ const PROJECTS = [
     ],
     techStack: ["Python", "Tkinter", "ttkbootstrap", "qrcode", "Pillow (PIL)", "svgwrite", "PyInstaller"],
     category: "Desktop App"
+  },
+  {
+    id: "PRJ-009",
+    title: "Quizora — The Adaptive Quiz Arena",
+    shortDesc: "The ultimate full-stack, gaming-grade educational platform for limitless learning.",
+    fullDesc: "Quizora is a modern Node.js/Express and Vanilla JS/CSS platform designed to revolutionize digital education through Programmatic Intelligence. It moves away from static question banks to generate billions of unique combinations in Math, Science, and Tech using mathematical models. Featuring adaptive difficulty that scales in real-time based on user performance, and zero-dependency sound synthesis via the Web Audio API, Quizora delivers a high-performance, gaming-grade educational experience with zero framework bloat.",
+    price: "₹399",
+    thumbnail: "images/prj009/thumb.jpg",
+    screenshots: [
+      "images/prj009/1.jpg",
+      "images/prj009/2.jpg",
+      "images/prj009/3.jpg",
+      "images/prj009/4.jpg"
+    ],
+    demoVideo: "",
+    problemStatement: `In the current digital education market, most quiz applications suffer from three major flaws:
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
+      <li><strong>Limited Content:</strong> They rely on static question banks that users quickly exhaust, leading to low retention.</li>
+      <li><strong>Lack of Personalization:</strong> They treat all users the same, failing to adapt to their individual speed and skill level.</li>
+      <li><strong>High Asset Overhead:</strong> Traditional apps are slowed down by heavy MP3 files and external API dependencies, making it difficult to deploy and expensive to maintain.</li>
+    </ul>`,
+    solution: `<strong>The Solution:</strong><br/>
+    Quizora solves these problems by moving away from static databases and toward Programmatic Intelligence.
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+      <li><strong>Infinite Replayability:</strong> Instead of storing questions, Quizora generates them using mathematical models. This means billions of unique combinations in Math, Science, and Tech.</li>
+      <li><strong>Adaptive Difficulty:</strong> The server monitors user performance in real-time. If a user is too good, the difficulty scales up instantly; if they struggle, it scales down to maintain engagement.</li>
+      <li><strong>Zero-Dependency Sound:</strong> Uses the Web Audio API to synthesize gaming sounds directly in the browser—no MP3 files required, leading to lightning-fast load times.</li>
+    </ul>
+    <strong>Technical Approach & Architecture:</strong><br/>
+    This project is built using a modern Node.js/Express backend and a Vanilla JS/CSS frontend to ensure maximum performance and zero framework bloat.
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
+      <li><strong>Secure Backend Logic:</strong> Unlike most web games, all \"correct answers\" are kept on the server. The client only receives the question and options, making it impossible to cheat via the browser console.</li>
+      <li><strong>Dual-Mode Database:</strong> Featuring a proprietary fallback system, Quizora works out-of-the-box. It connects to MongoDB for production but automatically switches to a Local JSON Engine if no database is found—ensuring 100% uptime.</li>
+      <li><strong>Mathematical Generator Suite:</strong> Modular engines (Math, Science, Tech, GK) compute distractors (wrong answers) and detailed explanations programmatically.</li>
+      <li><strong>Premium UI/UX:</strong> Built with Glassmorphism, 3D mouse-parallax effects, and a Canvas API particle engine for a high-end, premium feel.</li>
+    </ul>`,
+    features: [
+      "Adaptive Learning Engine (5-tier difficulty scaling)",
+      "Anti-Cheat System (Server-side validation)",
+      "Real-Time Dashboards (Accuracy, mastery, XP)",
+      "No-Asset Audio (Native browser synthesis)",
+      "Global Leaderboards (Competitive ranking)",
+      "Offline Fallback (Local JSON engine support)"
+    ],
+    techStack: ["Node.js", "Express", "Vanilla JS", "CSS3", "Web Audio API", "MongoDB", "Canvas API"],
+    category: "Full Stack"
+  },
+  {
+    id: "PRJ-010",
+    title: "StockPulse AI: Advanced Market Analysis Suite",
+    shortDesc: "High-performance, web-based financial intelligence platform empowering investors with automated technical analysis and AI-driven insights.",
+    fullDesc: "StockPulse AI is a high-performance, web-based financial intelligence platform designed to empower investors with automated technical analysis and AI-driven insights. Built with a focus on modern aesthetics and data accuracy, it transforms raw stock market data into clear, actionable intelligence. It provides a unified, intelligent dashboard that handles the heavy lifting of data analysis, including technical decoding, automated signal generation, and risk profiling.",
+    price: "₹299",
+    thumbnail: "images/prj010/thumb.jpg",
+    screenshots: [
+      "images/prj010/1.jpg",
+      "images/prj010/2.jpg",
+      "images/prj010/3.jpg",
+      "images/prj010/4.jpg"
+    ],
+    demoVideo: "",
+    problemStatement: `Navigating the stock market requires more than just looking at price charts. Individual investors often face several hurdles:
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
+      <li><strong>Complexity:</strong> Interpreting technical indicators like Moving Averages (SMA) and Volatility can be overwhelming for beginners.</li>
+      <li><strong>Time-Consuming:</strong> Manually calculating trends and risk levels for various stocks takes significant time.</li>
+      <li><strong>Static Tools:</strong> Most analysis tools are one-way; they show data but don't answer questions or provide context-aware explanations.</li>
+      <li><strong>Visual Clutter:</strong> Traditional trading platforms are often cluttered, making it difficult to focus on core performance metrics.</li>
+    </ul>`,
+    solution: `<strong>The Solution:</strong><br/>
+    StockPulse AI solves these problems by providing a unified, intelligent dashboard that handles the heavy lifting of data analysis.
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+      <li><strong>Instant Technical Decoding:</strong> Automatic calculation of 20-day and 50-day SMAs to identify trend shifts.</li>
+      <li><strong>Automated Signal Generation:</strong> Clear \"Buy\", \"Hold\", or \"Sell\" signals based on proven technical crossover logic.</li>
+      <li><strong>Risk Profiling:</strong> Real-time volatility assessment that labels stocks as High, Medium, or Low risk.</li>
+      <li><strong>Conversational Intelligence:</strong> An integrated AI Market Assistant that understands the context of the uploaded data and answers general financial questions.</li>
+    </ul>
+    <strong>Technical Approach:</strong><br/>
+    The project follows a modular, scalable architecture:
+    <ul style="margin-top: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px;">
+      <li><strong>Modern Frontend (UI/UX):</strong> Glassmorphism Design using deep gradients and blurred glass effects. Interactive visuals powered by Chart.js.</li>
+      <li><strong>Intelligent Backend:</strong> Developed using Flask (Python). Leverages Pandas and NumPy for lightning-fast analysis of large CSV datasets.</li>
+      <li><strong>Context-Aware AI:</strong> Built-in expertise on over 20+ financial terms. Data-Link Technology allows the AI to answer specific questions about the dataset.</li>
+      <li><strong>Persistence & Security:</strong> Uses SQLAlchemy (SQLite) for history and chat logging. Secure file upload protocols.</li>
+    </ul>`,
+    features: [
+      "Instant Technical Decoding (SMA calculation)",
+      "Automated Signal Generation (Buy/Hold/Sell)",
+      "Real-time Risk Profiling (Volatility analysis)",
+      "Integrated AI Market Assistant",
+      "Interactive Chart.js Visualizations",
+      "Secure Flask & SQLAlchemy Backend"
+    ],
+    techStack: ["Flask", "Python", "Pandas", "NumPy", "Chart.js", "SQLAlchemy", "SQLite"],
+    category: "FinTech / AI"
   }
 ];

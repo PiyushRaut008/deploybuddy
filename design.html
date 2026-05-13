@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Design details — view screenshots, features, and info." />
-  <title>Design Details — DeployBuddy</title>
+  <title>Design Details — DeployBuddies</title>
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
@@ -23,12 +23,12 @@
   <!-- Navbar -->
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">⚡ DeployBuddy</a>
+      <a href="index.html" class="nav-logo">⚡ DeployBuddies</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#projects">Projects</a></li>
         <li><a href="index.html#designs">Designs</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact">Custom Order</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -64,16 +64,18 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <span class="footer-logo">⚡ DeployBuddy</span>
-        <p class="footer-text">&copy; 2026 DeployBuddy. All rights reserved.</p>
+        <span class="footer-logo">⚡ DeployBuddies</span>
+        <p class="footer-text">&copy; 2026 DeployBuddies. All rights reserved.</p>
         <div class="social-links">
-          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://www.instagram.com/deploybuddy_01?utm_source=qr&igsh=MWFxYm02bm1xaGc2eA==" target="_blank"
+            rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+          <a href="https://www.youtube.com/@DeployBuddy" target="_blank" rel="noopener" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/deploy-buddy-735727408?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank" rel="noopener" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </div>
@@ -81,10 +83,55 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close" id="lightboxClose">&times;</span>
     <img class="lightbox-content" id="lightboxImg">
+  </div>
+
+  <!-- Order Modal -->
+  <div class="modal-overlay" id="orderModalOverlay">
+    <div class="order-modal">
+      <span class="modal-close" id="closeOrderModal">&times;</span>
+      <div class="modal-header">
+        <h2 class="modal-title">Place Your Order</h2>
+        <p class="modal-subtitle">Fill in the details below to complete your order for this project.</p>
+      </div>
+      <form class="modal-form" id="orderForm" action="https://formsubmit.co/deploybuddy.support@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_subject" value="New Order Request from DeployBuddies!" id="orderSubject" />
+        <input type="hidden" name="_next" value="https://piyushraut008.github.io/test/" />
+
+        <div class="form-group">
+          <label for="orderName">Your Name *</label>
+          <input type="text" id="orderName" name="name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderProjectName">Project Name / ID</label>
+          <input type="text" id="orderProjectName" name="project_name" readonly style="background: var(--bg-glass); color: var(--text-muted); cursor: not-allowed;" />
+        </div>
+
+        <div class="form-group">
+          <label for="orderEmail">Email Address *</label>
+          <input type="email" id="orderEmail" name="email" placeholder="example@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderPhone">Phone Number *</label>
+          <input type="tel" id="orderPhone" name="phone" placeholder="e.g. +91 98765 43210" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderDescription">Any other Description (Optional)</label>
+          <textarea id="orderDescription" name="description" placeholder="Any specific requirements?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-cart-shopping"></i> Confirm Order
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- Scripts -->
@@ -116,7 +163,7 @@
       }
 
       // ── Update page title ──
-      document.title = `${project.title} — DeployBuddy`;
+      document.title = `${project.title} — DeployBuddies`;
 
       // ── Build the detail page ──
       detailPage.innerHTML = `
@@ -158,9 +205,9 @@
                 <span class="detail-info__price">${project.price}</span>
               </div>` : ''}
               <div class="detail-info__actions">
-                <a href="index.html#contact" class="btn btn-primary detail-contact-btn" data-pid="${project.id}">
-                  <i class="fa-solid fa-paintbrush"></i> Choose This Design
-                </a>
+                <button class="btn btn-primary detail-order-btn" data-pid="${project.id}" data-ptitle="${project.title}">
+                  <i class="fa-solid fa-cart-shopping"></i> Place Order
+                </button>
                 <a href="index.html#designs" class="btn btn-outline">
                   <i class="fa-solid fa-arrow-left"></i> All Designs
                 </a>
@@ -195,12 +242,12 @@
           <!-- CTA Banner -->
           <div class="detail-cta">
             <div class="detail-cta__text">
-              <h3>Interested in this design?</h3>
-              <p>Get in touch and we'll start building your personal portfolio based on this layout!</p>
+              <h3>Love this layout?</h3>
+              <p>Place your order now and we'll start building your personal portfolio based on this layout!</p>
             </div>
-            <a href="index.html#contact" class="btn btn-primary detail-contact-btn" data-pid="${project.id}">
-              <i class="fa-solid fa-paper-plane"></i> Get in Touch
-            </a>
+            <button class="btn btn-primary detail-order-btn" data-pid="${project.id}" data-ptitle="${project.title}">
+              <i class="fa-solid fa-paper-plane"></i> Place Order
+            </button>
           </div>
 
         </div>
@@ -240,11 +287,46 @@
         }
       });
 
-      // ── Contact buttons: store project ID & redirect ──
-      document.querySelectorAll('.detail-contact-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          sessionStorage.setItem('autofill_project_id', btn.dataset.pid);
+      // ── Modal Logic ──
+      const modalOverlay = document.getElementById('orderModalOverlay');
+      const closeBtn = document.getElementById('closeOrderModal');
+      const orderForm = document.getElementById('orderForm');
+      const orderProjectNameField = document.getElementById('orderProjectName');
+      const orderSubjectField = document.getElementById('orderSubject');
+
+      function openOrderModal(id, title) {
+        if (!modalOverlay) return;
+        if (orderProjectNameField) orderProjectNameField.value = `${title} (${id})`;
+        if (orderSubjectField) orderSubjectField.value = `New Order Request: ${title} [${id}]`;
+        modalOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeOrderModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeOrderModal);
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) closeOrderModal();
         });
+      }
+
+      if (orderForm) {
+        orderForm.addEventListener('submit', (e) => {
+          alert('Order request sent! We will contact you soon. 🚀');
+          setTimeout(closeOrderModal, 500);
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.detail-order-btn');
+        if (btn) {
+          openOrderModal(btn.dataset.pid, btn.dataset.ptitle);
+        }
       });
     });
   </script>

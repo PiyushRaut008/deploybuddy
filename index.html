@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Buy premium academic projects, source code, and custom portfolio designs at affordable prices." />
-  <title>DeployBuddy — Buy Premium Projects & Custom Portfolios</title>
+  <title>DeployBuddies — Buy Premium Projects & Custom Portfolios</title>
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
@@ -29,12 +29,12 @@
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="nav-logo">⚡ DeployBuddy</a>
+      <a href="#" class="nav-logo">⚡ DeployBuddies</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#designs">Designs</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Custom Order</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -64,7 +64,7 @@
           <i class="fa-solid fa-layer-group"></i> View Projects
         </a>
         <a href="#contact" class="btn btn-outline">
-          <i class="fa-solid fa-envelope"></i> Contact Us
+          <i class="fa-solid fa-envelope"></i> Order Custom
         </a>
       </div>
 
@@ -128,10 +128,10 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Contact Us</h2>
-        <p class="section-desc">Interested in a project? Fill out the form and we'll get back to you within 24 hours.
-        </p>
+        <span class="section-label">Tailored Solutions</span>
+        <h2 class="section-title">Order Custom Projects</h2>
+        <p class="section-desc">Have a specific idea in mind? Tell us about your custom project requirements and
+          we'll build it for you from scratch.</p>
       </div>
 
       <div class="contact-wrapper">
@@ -158,36 +158,41 @@
 
         <!-- Right: Form -->
         <div class="contact-form-card">
-          <form id="contactForm" action="https://formsubmit.co/diploybuddy@gmail.com" method="POST">
+          <form id="contactForm" action="https://formsubmit.co/deploybuddy.support@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_subject" value="New Project Inquiry from DeployBuddy!" />
+            <input type="hidden" name="_subject" value="New Custom Project Request from DeployBuddies!" />
             <!-- IMPORTANT: Replace YOUR_USERNAME with your actual GitHub username -->
-            <input type="hidden" name="_next" value="https://piyushraut008.github.io/deploybuddy/" />
+            <input type="hidden" name="_next" value="https://piyushraut008.github.io/test/" />
 
             <div class="form-group">
-              <label for="email">Your Email *</label>
-              <input type="email" id="email" name="email" placeholder="projectdisplay007.com" required />
+              <label for="customName">Your Name *</label>
+              <input type="text" id="customName" name="name" placeholder="John Doe" required />
             </div>
 
             <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="e.g. +91 98765 43210" required />
+              <label for="customEmail">Your Email *</label>
+              <input type="email" id="customEmail" name="email" placeholder="example@email.com" required />
             </div>
 
             <div class="form-group">
-              <label for="projectId">Project / Design ID *</label>
-              <input type="text" id="projectId" name="project_id"
-                placeholder="e.g. PRJ-001 or DGN-001 (auto-filled on click)" required />
+              <label for="customPhone">Phone Number *</label>
+              <input type="tel" id="customPhone" name="phone" placeholder="e.g. +91 98765 43210" required />
             </div>
 
             <div class="form-group">
-              <label for="message">Message (optional)</label>
-              <textarea id="message" name="message" placeholder="Tell us about your requirements…"></textarea>
+              <label for="projectTech">Project Technology *</label>
+              <input type="text" id="projectTech" name="project_technology"
+                placeholder="e.g. React, Python, Flutter etc." required />
+            </div>
+
+            <div class="form-group">
+              <label for="customMessage">Project Description *</label>
+              <textarea id="customMessage" name="message" placeholder="Describe your custom project requirements in detail..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary form-submit-btn">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
+              <i class="fa-solid fa-paper-plane"></i> Request Custom Project
             </button>
           </form>
         </div>
@@ -215,8 +220,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <span class="footer-logo">⚡ DeployBuddy</span>
-        <p class="footer-text">&copy; 2026 DeployBuddy. All rights reserved.</p>
+        <span class="footer-logo">⚡ DeployBuddies</span>
+        <p class="footer-text">&copy; 2026 DeployBuddies. All rights reserved.</p>
         <div class="social-links">
           <a href="https://www.instagram.com/deploybuddy_01?utm_source=qr&igsh=MWFxYm02bm1xaGc2eA==" target="_blank"
             rel="noopener" aria-label="Instagram">
@@ -235,6 +240,52 @@
   </footer>
 
   <!-- ============ SCRIPTS ============ -->
+  <!-- ============ ORDER MODAL ============ -->
+  <div class="modal-overlay" id="orderModalOverlay">
+    <div class="order-modal">
+      <span class="modal-close" id="closeOrderModal">&times;</span>
+      <div class="modal-header">
+        <h2 class="modal-title">Place Your Order</h2>
+        <p class="modal-subtitle">Fill in the details below to complete your order for this project.</p>
+      </div>
+      <form class="modal-form" id="orderForm" action="https://formsubmit.co/deploybuddy.support@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_subject" value="New Order Request from DeployBuddies!" id="orderSubject" />
+        <input type="hidden" name="_next" value="https://piyushraut008.github.io/test/" />
+
+        <div class="form-group">
+          <label for="orderName">Your Name *</label>
+          <input type="text" id="orderName" name="name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderProjectName">Project Name / ID</label>
+          <input type="text" id="orderProjectName" name="project_name" readonly style="background: var(--bg-glass); color: var(--text-muted); cursor: not-allowed;" />
+        </div>
+
+        <div class="form-group">
+          <label for="orderEmail">Email Address *</label>
+          <input type="email" id="orderEmail" name="email" placeholder="example@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderPhone">Phone Number *</label>
+          <input type="tel" id="orderPhone" name="phone" placeholder="e.g. +91 98765 43210" required />
+        </div>
+
+        <div class="form-group">
+          <label for="orderDescription">Any other Description (Optional)</label>
+          <textarea id="orderDescription" name="description" placeholder="Any specific requirements or questions?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-cart-shopping"></i> Confirm Order
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script src="js/projects.js"></script>
   <script src="js/designs.js"></script>
   <script src="js/script.js"></script>
