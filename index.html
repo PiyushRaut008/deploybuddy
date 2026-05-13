@@ -188,7 +188,8 @@
 
             <div class="form-group">
               <label for="customMessage">Project Description *</label>
-              <textarea id="customMessage" name="message" placeholder="Describe your custom project requirements in detail..." required></textarea>
+              <textarea id="customMessage" name="message"
+                placeholder="Describe your custom project requirements in detail..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary form-submit-btn">
@@ -248,11 +249,12 @@
         <h2 class="modal-title">Place Your Order</h2>
         <p class="modal-subtitle">Fill in the details below to complete your order for this project.</p>
       </div>
-      <form class="modal-form" id="orderForm" action="https://formsubmit.co/deploybuddy.support@gmail.com" method="POST">
+      <form class="modal-form" id="orderForm" action="https://formsubmit.co/deploybuddy.support@gmail.com"
+        method="POST">
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_subject" value="New Order Request from DeployBuddies!" id="orderSubject" />
-        <input type="hidden" name="_next" value="https://piyushraut008.github.io/test/" />
+        <input type="hidden" name="_next" value="https://piyushraut008.github.io/deploybuddy/" />
 
         <div class="form-group">
           <label for="orderName">Your Name *</label>
@@ -261,7 +263,8 @@
 
         <div class="form-group">
           <label for="orderProjectName">Project Name / ID</label>
-          <input type="text" id="orderProjectName" name="project_name" readonly style="background: var(--bg-glass); color: var(--text-muted); cursor: not-allowed;" />
+          <input type="text" id="orderProjectName" name="project_name" readonly
+            style="background: var(--bg-glass); color: var(--text-muted); cursor: not-allowed;" />
         </div>
 
         <div class="form-group">
@@ -276,7 +279,8 @@
 
         <div class="form-group">
           <label for="orderDescription">Any other Description (Optional)</label>
-          <textarea id="orderDescription" name="description" placeholder="Any specific requirements or questions?"></textarea>
+          <textarea id="orderDescription" name="description"
+            placeholder="Any specific requirements or questions?"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">
