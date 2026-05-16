@@ -343,12 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Order Form Submission
+  // Handle Order Form Submission (AJAX)
   if (orderForm) {
-    orderForm.addEventListener('submit', (e) => {
-      showToast('Order request sent! We will contact you soon. 🚀');
-      setTimeout(closeOrderModal, 1000);
-    });
+    handleFormSubmission(orderForm, 'Order request sent! We will contact you soon. 🚀');
   }
 
   // Attach to project card buttons
@@ -389,8 +386,54 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      showToast('Custom project request sent! 🎉');
+    handleFormSubmission(contactForm, 'Custom project request sent! 🎉');
+  }
+
+  // Helper function for Web3Forms AJAX submission
+  function handleFormSubmission(form, successMsg) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+        .then(async (response) => {
+          const resJson = await response.json();
+          if (response.status === 200) {
+            showToast(successMsg);
+            form.reset();
+            // If it's the order modal, close it
+            if (form.id === 'orderForm') {
+              setTimeout(closeOrderModal, 1000);
+            }
+          } else {
+            showToast(resJson.message || "Submission failed", 'error');
+          }
+        })
+        .catch(error => {
+          console.error('Form submission error:', error);
+          showToast("Something went wrong!", 'error');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        });
     });
   }
 

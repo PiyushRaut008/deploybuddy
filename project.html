@@ -80,11 +80,10 @@
         <h2 class="modal-title">Place Your Order</h2>
         <p class="modal-subtitle">Fill in the details below to complete your order for this project.</p>
       </div>
-      <form class="modal-form" id="orderForm" action="https://formsubmit.co/deploybuddy.support@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_subject" value="New Order Request from DeployBuddies!" id="orderSubject" />
-        <input type="hidden" name="_next" value="https://piyushraut008.github.io/deploybuddy/" />
+      <form class="modal-form" id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="f2153d8d-9d6e-4c2c-97e8-056cf482d0ee" />
+        <input type="hidden" name="subject" value="New Order Request from DeployBuddies!" id="orderSubject" />
+        <input type="hidden" name="from_name" value="DeployBuddies Order" />
 
         <div class="form-group">
           <label for="orderName">Your Name *</label>
@@ -326,12 +325,7 @@
         });
       }
 
-      if (orderForm) {
-        orderForm.addEventListener('submit', (e) => {
-          alert('Order request sent! We will contact you soon. 🚀');
-          setTimeout(closeOrderModal, 500);
-        });
-      }
+      // Submission is handled in script.js via AJAX
 
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('.detail-order-btn');
